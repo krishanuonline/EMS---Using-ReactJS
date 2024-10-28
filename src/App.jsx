@@ -1,9 +1,11 @@
+import Login from "./components/Auth/Login"
 
 function App() {
 
   return (
     <>
-      <div>APP Component</div>
+    
+      <Login/>
     </>
   )
 }
