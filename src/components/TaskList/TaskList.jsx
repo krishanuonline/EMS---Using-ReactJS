@@ -1,4 +1,4 @@
-const TaskList = () => {
+const TaskList = ({data}) => {
     
     return (
         <div id="taskList" className="h-[56%] overflow-x-auto w-full flex items-center justify-start gap-5 flex-nowrap mt-12 py-5 px-2">

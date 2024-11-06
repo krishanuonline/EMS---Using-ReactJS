@@ -8,25 +8,40 @@ import { AuthContext } from "./context/AuthProvider"
 function App() {
 
   const [user,setUser] = useState(null);
+  const [loggedInUserData,setLoggedInUserData] = useState(null);
   const authData = useContext(AuthContext);
+  
 
-  useEffect(()=>{
-    if(authData){
-      const loggedinUser = localStorage.getItem("loggedInUser");
-      if (loggedinUser) {
-        setUser(loggedinUser.role);
-      }
-    }
+  useEffect(() => {
+    // Initialize local storage if not already set
+    setLocalStorage();
+  }, []);
 
-  },[authData])
+  // useEffect(()=>{
+  //   if(authData){
+  //     const loggedinUser = localStorage.getItem("loggedInUser");
+  //     if (loggedinUser) {
+  //       setUser(loggedinUser.role);
+  //     }
+  //   }
+
+  // },[authData])
 
   const handleLogin = (email,password)=>{
+    if(!authData){
+      return;
+    }
     if(email == 'admin@ems.com' && password == '123'){
-      setUser('admin');
+      setUser("admin");
       localStorage.setItem("loggedinUser",JSON.stringify({role:"admin"}))
-    }else if(authData && authData.employees.find((e)=> email == e.email && password == e.password)){
-      setUser('employee');
-      localStorage.setItem("loggedinUser",JSON.stringify({role:"employee"}))
+    }else if(authData){
+      const employee = authData[0].employees.find((e)=> email == e.email && password == e.password);
+      if(employee){
+        setUser("employees");
+        setLoggedInUserData(employee)
+        localStorage.setItem("loggedinUser",JSON.stringify({role:"employees"}))
+
+      }
 
     }else{
       alert("Invalid Credential!!");
@@ -39,10 +54,9 @@ function App() {
   return (
     <>
     
-      {!user ? <Login handleLogin={handleLogin}/> : ""}
-      {user=='admin'? <AdminDashboard/> : user == 'employee' ? <EmployeeDashboard/> : ''}
-      {/* <EmployeeDashboard/> */}
-      {/* <AdminDashboard/> */}
+      {!user ? <Login handleLogin={handleLogin}/> : null}
+      {user=='admin'? <AdminDashboard/> : user=="employees"?  <EmployeeDashboard data = {loggedInUserData}/> : null}
+     
     </>
   )
 }

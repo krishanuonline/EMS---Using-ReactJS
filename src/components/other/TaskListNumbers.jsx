@@ -1,4 +1,4 @@
-const TaskListNumbers = () => {
+const TaskListNumbers = ({data}) => {
     
     return (
         <div className="flex justify-between gap-5 screen">
