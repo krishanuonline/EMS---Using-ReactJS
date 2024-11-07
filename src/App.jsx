@@ -12,11 +12,6 @@ function App() {
   const authData = useContext(AuthContext);
   
 
-  useEffect(() => {
-    // Initialize local storage if not already set
-    setLocalStorage();
-  }, []);
-
   // useEffect(()=>{
   //   if(authData){
   //     const loggedinUser = localStorage.getItem("loggedInUser");
