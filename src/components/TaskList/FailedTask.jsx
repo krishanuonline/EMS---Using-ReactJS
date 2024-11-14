@@ -10,6 +10,9 @@ const FailedTask = () => {
             <p className="text-sm mt-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam veniam magnam et, enim voluptatem tempore nemo explicabo magni voluptatum dolorum.
             </p>
+            <div className="mt-2">
+                <button className="w-full">Failed</button>
+            </div>
         </div>
         
     );
