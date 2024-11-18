@@ -21,7 +21,6 @@ const AllTask = () => {
 
                
                 {userData.map((e,i)=>{
-                    console.log("eeeeeeeeeeeeeeee ",e.taskCounts.newTask);
                     
                     return(
                         <div key={i} className="border-2 border-emerald-400 mb-2 py-2 px-4 flex justify-between rounded">
