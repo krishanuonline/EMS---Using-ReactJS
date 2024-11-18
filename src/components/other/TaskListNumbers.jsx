@@ -1,9 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 const TaskListNumbers = (props) => {
-    console.log("ddddddddddddd", props.data);
-
+    console.log("ddddddddddddd",props.data)
+    
     return (
         <div className="flex justify-between gap-5 screen">
             <div className="w-[45%] bg-red-500 mt-5 py-5 px-10 rounded-xl">
@@ -25,20 +22,8 @@ const TaskListNumbers = (props) => {
                 <h2 className="text-3xl font-semibold">{props.data.taskCounts.failed}</h2>
                 <h3 className="text-xl font-semibold">Failed Task</h3>
             </div>
+
         </div>
     );
 };
-
-// Define prop types for the component
-TaskListNumbers.propTypes = {
-    data: PropTypes.shape({
-        taskCounts: PropTypes.shape({
-            newTask: PropTypes.number.isRequired,
-            completed: PropTypes.number.isRequired,
-            active: PropTypes.number.isRequired,
-            failed: PropTypes.number.isRequired,
-        }).isRequired,
-    }).isRequired,
-};
-
 export default TaskListNumbers;
