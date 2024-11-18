@@ -21,14 +21,15 @@ const AllTask = () => {
 
                
                 {userData.map((e,i)=>{
+                    console.log("eeeeeeeeeeeeeeee ",e.taskCounts.newTask);
                     
                     return(
                         <div key={i} className="border-2 border-emerald-400 mb-2 py-2 px-4 flex justify-between rounded">
                             <h2 className="text-lg font-medium w-1/5 text-white">{e.firstName}</h2>
-                            <h3 className="text-lg font-medium w-1/5 text-blue-400">{e.taskCounts.newTask}</h3>
+                            {/* <h3 className="text-lg font-medium w-1/5 text-blue-400">{e.taskCounts.newTask}</h3>
                             <h5 className="text-lg font-medium w-1/5 text-yellow-400">{e.taskCounts.active}</h5>
                             <h5 className="text-lg font-medium w-1/5 text-green-400">{e.taskCounts.completed}</h5>
-                            <h5 className="text-lg font-medium w-1/5 text-red-400">{e.taskCounts.failed}</h5>
+                            <h5 className="text-lg font-medium w-1/5 text-red-400">{e.taskCounts.failed}</h5> */}
                         </div>
                     )
                 })}
